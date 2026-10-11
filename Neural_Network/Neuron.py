@@ -2,26 +2,22 @@ import math
 
 class Neuron:
     def __init__(self, name, weights, bias):
-        self.name = name
-        self.weights = weights
-        self.bias = bias
+        self.inputs=[]
+        self.weights=weights
+        self.bias=bias
+        self.output=0
 
-        self.inputs = []
+    def conf_neuron(self, weights, bias):
+        self.weights=weights
+        self.bias=bias
 
-        self.outputs = []
-        self.output = 0
-        self.result = 0
+    def calc_neuron_output(self, neuron_inputs):
+        self.inputs=neuron_inputs
+        self.output=0
+        if len(self.inputs) != len(self.weights):
+            print("Amount of weights and inputs dont match!")
 
-    def reset_params(self):
-        self.outputs = []
-        self.output = 0
-
-    def calc_out(self):
         for i in range(len(self.inputs)):
-            self.outputs[i] = self.weights[i]*self.inputs[i]
-        for i in range(len(self.outputs)):
-            self.output = self.output + self.outputs[i]
+            self.output = self.output + (self.inputs[i] * self.weights[i])
         self.output = self.output + self.bias
-        self.result = math.tanh(self.output)
-        self.reset_params()
-        return self.result
+        return math.tanh(self.output)
