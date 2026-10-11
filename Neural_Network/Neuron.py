@@ -1,10 +1,11 @@
 import math
 
 class Neuron:
-    def __init__(self, name, weights, bias):
+    def __init__(self, name, initial_weights, initial_bias):
+        self.name=name
         self.inputs=[]
-        self.weights=weights
-        self.bias=bias
+        self.weights=initial_weights
+        self.bias=initial_bias
         self.output=0
 
     def conf_neuron(self, weights, bias):

@@ -1,8 +1,9 @@
 import Neuron
 
 class Layer:
-    def __init__(self, layer_dimension, input_dimension):
+    def __init__(self,name, layer_dimension, input_dimension):
         self.layer_inputs=[]
+        self.name=name
         self.input_dimension=input_dimension
         self.outputs=[]
         self.neurons=[]
@@ -12,7 +13,7 @@ class Layer:
 
         for i in range(self.layer_dimension):
             one_neuron_weights=[0]*self.input_dimension
-            self.neurons.append(Neuron.Neuron(name=i, weights=one_neuron_weights, bias=0))
+            self.neurons.append(Neuron.Neuron(name=i, initial_weights=one_neuron_weights, initial_bias=0))
             self.biases.append(0)
             self.weights.append(one_neuron_weights)
 
