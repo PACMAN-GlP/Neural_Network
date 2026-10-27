@@ -8,8 +8,11 @@ class Tile:
     def get_already_been_hit(self):
         return self.already_hit
 
-    def get_ship_on_tile(self):
+    def shoot_on_tile(self):
         self.already_hit=True
+        return self.ship_on_tile
+
+    def get_ship_on_tile(self):
         return self.ship_on_tile
 
     def set_ship_on_tile(self, ship_on_tile=bool):
